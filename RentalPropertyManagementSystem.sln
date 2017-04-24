@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPMS_Web", "RPMS_Web\RPMS_Web.csproj", "{B5FC4917-04EF-4A5E-8553-A030A6B7EA95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPMS_Database", "RPMS_Database\RPMS_Database.csproj", "{639EEC54-5556-4EE5-8D28-B8BC5452FABF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPMS_BusinessLogic", "RPMS_BusinessLogic\RPMS_BusinessLogic.csproj", "{56956D27-304E-4CC7-AE93-55F343F7548C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RPMS_References", "RPMS_References", "{7031BD75-DBBA-4EA7-AD4A-52F5B9CF85FE}"
+	ProjectSection(SolutionItems) = preProject
+		RPMS_References\evohtmltopdf.dll = RPMS_References\evohtmltopdf.dll
+		RPMS_References\evohtmltopdf.xml = RPMS_References\evohtmltopdf.xml
+		RPMS_References\evointernal.dat = RPMS_References\evointernal.dat
+		RPMS_References\IZ.WebFileManager.dll = RPMS_References\IZ.WebFileManager.dll
+		RPMS_References\IZ.WebFileManager.XML = RPMS_References\IZ.WebFileManager.XML
+		RPMS_References\Telerik.Web.UI.dll = RPMS_References\Telerik.Web.UI.dll
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5FC4917-04EF-4A5E-8553-A030A6B7EA95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5FC4917-04EF-4A5E-8553-A030A6B7EA95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5FC4917-04EF-4A5E-8553-A030A6B7EA95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5FC4917-04EF-4A5E-8553-A030A6B7EA95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{639EEC54-5556-4EE5-8D28-B8BC5452FABF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{639EEC54-5556-4EE5-8D28-B8BC5452FABF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{639EEC54-5556-4EE5-8D28-B8BC5452FABF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{639EEC54-5556-4EE5-8D28-B8BC5452FABF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56956D27-304E-4CC7-AE93-55F343F7548C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56956D27-304E-4CC7-AE93-55F343F7548C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56956D27-304E-4CC7-AE93-55F343F7548C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56956D27-304E-4CC7-AE93-55F343F7548C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

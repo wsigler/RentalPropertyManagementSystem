@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12, 10.375" name="RentalManagementDB">
+  <DataContextMoniker Name="/RentalManagementDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="05de5b57-ffab-4ae5-a9b7-1a096d5553e5" absoluteBounds="0.75, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/RentalManagementDBDataContext/Dictionary" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d52fa337-111c-4881-ad14-5fa584658363" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9bae0e1d-f2b4-4024-99fb-66817a5e1016" absoluteBounds="3.75, 0.75, 2, 3.1170068359375005">
+      <DataClassMoniker Name="/RentalManagementDBDataContext/LeaseInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c973ef58-37d0-4c20-9e0b-ab841502d856" absoluteBounds="3.765, 1.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0f7a828c-dddd-4a49-9f84-2ddddfc5fac6" absoluteBounds="0.75, 4.75, 2, 5.4246240234374987">
+      <DataClassMoniker Name="/RentalManagementDBDataContext/Property" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c3ce0967-60ed-42c0-9bf6-7ececfc7e550" absoluteBounds="0.765, 5.21, 1.9700000000000002, 4.8646240234375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bd5f852d-b69c-4d19-aceb-d5d171ce4a5c" absoluteBounds="3.75, 4.75, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/RentalManagementDBDataContext/RentPayment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7a0cc6ce-118e-4b36-87b7-272cf7505173" absoluteBounds="3.765, 5.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aa46ae9e-0020-4856-8da7-b7280d09e759" absoluteBounds="6.75, 0.75, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/RentalManagementDBDataContext/State" />
+      <nestedChildShapes>
+        <elementListCompartment Id="da7394a4-e082-4b6b-b33b-d254ebe73a32" absoluteBounds="6.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e0572eac-7bce-4dc4-b607-9cf87e8d95af" absoluteBounds="6.75, 3.75, 2, 4.4631168619791666">
+      <DataClassMoniker Name="/RentalManagementDBDataContext/Tenant" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7b9c2ea0-3b75-4736-a730-21842490e69c" absoluteBounds="6.765, 4.21, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0aa4886f-165f-453e-9e8c-833b371418ac" absoluteBounds="9.75, 0.75, 2, 3.1170068359375005">
+      <DataClassMoniker Name="/RentalManagementDBDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5126891f-c496-442f-8fc7-a91a65a18e5a" absoluteBounds="9.765, 1.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
