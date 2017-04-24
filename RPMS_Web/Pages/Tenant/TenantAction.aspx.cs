@@ -192,8 +192,11 @@ namespace RPMS_Web.Pages.Tenant
             PopulatePrimaryTenantDDL(int.Parse(ddlProperty.SelectedValue));
         }
 
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("TenantList.aspx");
+        }
+
         #endregion
-
-
     }
 }

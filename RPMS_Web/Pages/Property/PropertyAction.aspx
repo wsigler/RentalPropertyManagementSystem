@@ -155,7 +155,8 @@
             <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
             </div>
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 right">
-                <asp:Button runat="server" ID="btnCreate" Text="Create" class="btn btn-success"  OnClick="btnCreate_Click"/>
+                <asp:Button runat="server" ID="btnCreate" Text="Create" class="btn btn-success"  OnClick="btnCreate_Click"/>&nbsp;
+                <asp:Button runat="server" ID="btnCancel" Text="Cancel" class="btn btn-default"  OnClick="btnCancel_Click"/>
             </div>
         </div>
     </div>

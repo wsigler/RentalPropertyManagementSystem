@@ -183,6 +183,11 @@ namespace RPMS_Web.Pages.Property
             Response.Redirect("PropertyList.aspx");
         }
 
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PropertyList.aspx");
+        }
+
         #endregion
     }
 }
