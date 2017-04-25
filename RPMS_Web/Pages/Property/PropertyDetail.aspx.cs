@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using RPMS_Database;
+using System.Configuration;
+using System.IO;
 
 namespace RPMS_Web.Pages.Property
 {
@@ -26,6 +28,7 @@ namespace RPMS_Web.Pages.Property
         {
             states = db.States.ToList();
             trashDays = db.Dictionaries.Where(x => x.Category == "DaysOfTheWeek").ToList();
+            string relativeDir = string.Empty;
 
             if (Request.QueryString["id"] != null)
             {
@@ -35,6 +38,22 @@ namespace RPMS_Web.Pages.Property
                 tenants = (lease != null) ? db.Tenants.Where(x => x.IsActive == true && x.PropertyID == property.ID).ToList() : new List<RPMS_Database.Tenant>();
 
                 PopulateDetails();
+
+                // relative directory
+                relativeDir = string.Format("Properties\\Property_{0}", property.ID);
+                // get directory path
+                string tenantDir = ConfigurationManager.AppSettings["FileLocation"] + relativeDir;
+
+                // check for customer directory...create if it doesn't exist
+                if (!Directory.Exists(tenantDir))
+                {
+                    // create dir
+                    Directory.CreateDirectory(tenantDir);
+                }
+
+                // use virtual directory
+                fmCustomers.RootDirectories[0].DirectoryPath = "/files/" + relativeDir.Replace("\\", "/");
+                fmCustomers.RootDirectories[0].Text = "Property " + property.StreetAddress1;
             }
         }
 

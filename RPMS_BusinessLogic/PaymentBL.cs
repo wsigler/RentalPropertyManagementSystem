@@ -23,7 +23,7 @@ namespace RPMS_BusinessLogic
                 RentPayment payment = new RentPayment();
                 payment.TenantID = tenantId;
                 payment.PropertyID = propertyId;
-                payment.PaymentDate = sDate;
+                payment.PaymentDueDate = sDate;
                 payment.PaymentAmount = proRateAmount;
                 payment.AmountPaid = proRateAmount;
                 payment.DatePaid = sDate;
@@ -41,7 +41,7 @@ namespace RPMS_BusinessLogic
                 payment.TenantID = tenantId;
                 payment.PropertyID = propertyId;
                 DateTime paymentDate = (proRateAmount > 0) ? sDate.AddMonths(x) : sDate.AddMonths(x - 1);
-                payment.PaymentDate = new DateTime(paymentDate.Year, paymentDate.Month, 5);
+                payment.PaymentDueDate = new DateTime(paymentDate.Year, paymentDate.Month, 5);
                 payment.PaymentAmount = property.RentAmount;
                 payment.Balance = property.RentAmount;
                
@@ -79,7 +79,7 @@ namespace RPMS_BusinessLogic
                 eDate = new DateTime(DateTime.Now.Month, 6, DateTime.Now.Year);
             }
 
-            var payment = db.RentPayments.FirstOrDefault(x => x.PropertyID == propertyId && (x.PaymentDate >= sDate && x.PaymentDate <= eDate));
+            var payment = db.RentPayments.FirstOrDefault(x => x.PropertyID == propertyId && (x.PaymentDueDate >= sDate && x.PaymentDueDate <= eDate));
 
             if(payment != null)
             {

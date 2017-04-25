@@ -273,7 +273,9 @@
     <Content Include="Images\Icons\word.png" />
     <Content Include="Images\Icons\zip.png" />
     <Content Include="Pages\Documents\DocumentManagement.aspx" />
+    <Content Include="Pages\Documents\Eviction.aspx" />
     <Content Include="Pages\Documents\NonRenewal.aspx" />
+    <Content Include="Pages\Documents\NoticeOfEntry.aspx" />
     <Content Include="Pages\Lease\Lease.aspx" />
     <Content Include="Pages\Lease\LeaseList.aspx" />
     <Content Include="Pages\Lease\RentalAgreement.aspx" />
@@ -476,12 +478,26 @@
     <Compile Include="Pages\Documents\DocumentManagement.aspx.designer.cs">
       <DependentUpon>DocumentManagement.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Documents\Eviction.aspx.cs">
+      <DependentUpon>Eviction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Documents\Eviction.aspx.designer.cs">
+      <DependentUpon>Eviction.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Documents\NonRenewal.aspx.cs">
       <DependentUpon>NonRenewal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Documents\NonRenewal.aspx.designer.cs">
       <DependentUpon>NonRenewal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Documents\NoticeOfEntry.aspx.cs">
+      <DependentUpon>NoticeOfEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Documents\NoticeOfEntry.aspx.designer.cs">
+      <DependentUpon>NoticeOfEntry.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Lease\Lease.aspx.cs">
       <DependentUpon>Lease.aspx</DependentUpon>

@@ -156,7 +156,8 @@
                 <br />
                 <ol type="1">
                     <li>
-                        Tenant(s) shall be liable for any damage or injury caused by the pet(s) and shall pay Owner any costs.                     </li>
+                        Tenant(s) shall be liable for any damage or injury caused by the pet(s) and shall pay Owner any costs. 
+                    </li>
                     <li>
                         Tenant(s) agrees to indemnify, hold harmless, and defend against liability, judgments, expense, or claims by third parties for injury to a person or damage to property caused 
                         by Tenant’s pet(s). Owner holds no liability for the actions of the Tenant's pet(s).
@@ -212,7 +213,8 @@
                 Repairs resulting less than $125.00 shall be deemed minor repairs. Should Tenant(s) neglect maintenance responsibilities, Owner or agent may assume them on Tenant's behalf 
                 and any expenses incurred by Owner in connection therewith shall be additional rent (added rent), payable to Owner on demand. 
                 <br />
-                If Tenant(s) does not agree to be responsible for the appliances, but rather use his/her own, he/she may request that Owner's appliances be removed from the premises.                <br />
+                If Tenant(s) does not agree to be responsible for the appliances, but rather use his/her own, he/she may request that Owner's appliances be removed from the premises.
+                <br />
                 _______ Tenant(s) Initial
             </div>
             <br />

@@ -203,8 +203,10 @@ namespace RPMS_Web.Pages.Lease
             // get directory path
             string leaseDir = ConfigurationManager.AppSettings["FileLocation"] + relativeDir;
 
-            new RPMS_BusinessLogic.PDFConverter().ConvertLeaseToPDF(HttpContext.Current.Request.Url.Host, lease.ID, leaseDir,
-                string.Format("/Lease {0} - {1}", lease.StartDate.Value.ToString("yyyy-MM-dd"), lease.EndDate.Value.ToString("yyyy-MM-dd")));
+            var host = ConfigurationManager.AppSettings["HostLocation"];
+            new RPMS_BusinessLogic.PDFConverter().ConvertToPDF(host, leaseDir,
+                string.Format("/Lease {0} - {1}", lease.StartDate.Value.ToString("yyyy-MM-dd"), lease.EndDate.Value.ToString("yyyy-MM-dd")),
+                string.Format("http://{0}/Pages/Lease/Lease.aspx?id={1}", host, lease.ID));
 
             if (lease.TenantID.HasValue)
             {

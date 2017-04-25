@@ -158,7 +158,7 @@ namespace RPMS_Web
                 {
                     var compareDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 5);
 
-                    var payment = payments.FirstOrDefault(x => x.PaymentDate == compareDate);
+                    var payment = payments.FirstOrDefault(x => x.PaymentDueDate == compareDate);
                     if(payment != null)
                     {
                         cbRentCurrent.Checked = (payment.Balance == 0);

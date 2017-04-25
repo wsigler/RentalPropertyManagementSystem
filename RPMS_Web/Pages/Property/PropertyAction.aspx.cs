@@ -66,6 +66,7 @@ namespace RPMS_Web.Pages.Property
             cbWDConnection.Checked = editProperty.HasWDConnection;
             cbAC.Checked = editProperty.HasCentralAC;
             cbIsActive.Checked = editProperty.IsActive;
+            txtCounty.Text = editProperty.County;
         }
 
         private void PopulateStateDDL()
@@ -118,6 +119,8 @@ namespace RPMS_Web.Pages.Property
             property.City = txtCity.Text;
             property.StateID = int.Parse(ddlState.SelectedItem.Value);
             property.ZipCode = txtZipCode.Text;
+            property.County = txtCounty.Text;
+
             if(!string.IsNullOrEmpty(txtLat.Text))
             {
                 property.Lat = decimal.Parse(txtLat.Text);

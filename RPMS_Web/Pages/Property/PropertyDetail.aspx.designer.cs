@@ -175,6 +175,15 @@ namespace RPMS_Web.Pages.Property {
         protected global::System.Web.UI.WebControls.Literal litHasCentralAC;
         
         /// <summary>
+        /// fmCustomers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::IZ.WebFileManager.FileManager fmCustomers;
+        
+        /// <summary>
         /// litCreateAudit control.
         /// </summary>
         /// <remarks>

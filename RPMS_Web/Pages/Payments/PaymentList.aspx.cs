@@ -51,7 +51,7 @@ namespace RPMS_Web.Pages.Payments
                 HyperLink hlLease = (HyperLink) e.Item.FindControl("hlLease");
 
                 litPaymentAmount.Text = payment.PaymentAmount.ToString("##,###.00");
-                litPaymentDate.Text = payment.PaymentDate.ToString("MM/dd/yyyy");
+                litPaymentDate.Text = payment.PaymentDueDate.ToString("MM/dd/yyyy");
                 litAmountPaid.Text = (payment.AmountPaid.HasValue) ? payment.AmountPaid.Value.ToString("##,###.00") : string.Empty;
                 litPaidDate.Text = (payment.DatePaid.HasValue) ? payment.DatePaid.Value.ToString("MM/dd/yyyy") : string.Empty;
                 litBalance.Text = (payment.Balance.HasValue) ? payment.Balance.Value.ToString("##,###.00") : string.Empty;

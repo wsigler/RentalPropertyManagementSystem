@@ -44,7 +44,7 @@ namespace RPMS_Web.Pages.Payments
             hlBackToList.NavigateUrl = string.Format("~/Pages/Payments/PaymentList.aspx?id={0}", Request.QueryString["id"]);
 
             litPaymentAmount.Text = payment.PaymentAmount.ToString("##,###.00");
-            litPaymentDate.Text = payment.PaymentDate.ToString("MM/dd/yyyy");
+            litPaymentDate.Text = payment.PaymentDueDate.ToString("MM/dd/yyyy");
             txtAmountPaid.Text = (payment.AmountPaid.HasValue) ? payment.AmountPaid.Value.ToString("##,###.00") : payment.PaymentAmount.ToString("##,###.00");
             txtDatePaid.Text = (payment.DatePaid.HasValue) ? payment.DatePaid.Value.ToString("MM/dd/yyyy") : DateTime.Now.ToString("MM/dd/yyyy");
             litBalance.Text = (payment.Balance.HasValue) ? payment.Balance.Value.ToString("##,###.00") : string.Empty;

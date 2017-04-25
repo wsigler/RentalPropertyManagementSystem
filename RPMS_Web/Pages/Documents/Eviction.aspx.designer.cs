@@ -10,96 +10,96 @@
 namespace RPMS_Web.Pages.Documents {
     
     
-    public partial class DocumentManagement {
+    public partial class Eviction {
         
         /// <summary>
-        /// rbNonRenewal control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbNonRenewal;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// rbNoticeOfEntry control.
+        /// litTenantNames control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbNoticeOfEntry;
+        protected global::System.Web.UI.WebControls.Literal litTenantNames;
         
         /// <summary>
-        /// rbEviction control.
+        /// litAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbEviction;
+        protected global::System.Web.UI.WebControls.Literal litAddress;
         
         /// <summary>
-        /// ddlTenants control.
+        /// litTenantNames2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTenants;
+        protected global::System.Web.UI.WebControls.Literal litTenantNames2;
         
         /// <summary>
-        /// rowEntry control.
+        /// litDateOfNotice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl rowEntry;
+        protected global::System.Web.UI.WebControls.Literal litDateOfNotice;
         
         /// <summary>
-        /// txtReasons control.
+        /// litStreetAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtReasons;
+        protected global::System.Web.UI.WebControls.Literal litStreetAddress;
         
         /// <summary>
-        /// txtDateOfEntry control.
+        /// litPastDueAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateOfEntry;
+        protected global::System.Web.UI.WebControls.Literal litPastDueAmount;
         
         /// <summary>
-        /// txtTimeOfEntry control.
+        /// litStreetAddress2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTimeOfEntry;
+        protected global::System.Web.UI.WebControls.Literal litStreetAddress2;
         
         /// <summary>
-        /// btnCreate control.
+        /// litCounty control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreate;
+        protected global::System.Web.UI.WebControls.Literal litCounty;
         
         /// <summary>
-        /// btnCancel control.
+        /// litDateOfNotice2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
+        protected global::System.Web.UI.WebControls.Literal litDateOfNotice2;
     }
 }

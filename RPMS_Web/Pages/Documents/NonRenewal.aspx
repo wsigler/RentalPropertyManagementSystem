@@ -25,6 +25,7 @@
                 (972) 951-3617
             </div>
             <br />
+            <div class="w100 f120 tar">NOTICE OF NON RENEWAL</div>
             <br />
             <br />
             <div>

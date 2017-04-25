@@ -17,6 +17,7 @@ namespace RPMS_Web.Pages.Documents
         {
             if (!IsPostBack)
             {
+                rowEntry.Visible = false;
                 PopulateTenantDropdown();
             }
         }
@@ -41,17 +42,32 @@ namespace RPMS_Web.Pages.Documents
             string relativeDir = string.Format("Tenants\\Tenant_{0}", parent.ID);
 
             // get directory path
-            string nonrenewalDir = ConfigurationManager.AppSettings["FileLocation"] + relativeDir;
+            string tenantDir = ConfigurationManager.AppSettings["FileLocation"] + relativeDir;
+
+            var host = ConfigurationManager.AppSettings["HostLocation"];
 
             if (rbNonRenewal.Checked)
             {
-                new RPMS_BusinessLogic.PDFConverter().ConvertNonRenewalToPDF(HttpContext.Current.Request.Url.Host, parent.ID, nonrenewalDir,
-                string.Format("/Nonrenewal Form {0}", DateTime.Now.ToString("yyyy-MM-dd")));
+                
+
+                new RPMS_BusinessLogic.PDFConverter().ConvertToPDF(host, tenantDir,
+                string.Format("/Nonrenewal Form {0}", DateTime.Now.ToString("yyyy-MM-dd")),
+                string.Format("http://{0}/Pages/Documents/NonRenewal.aspx?id={1}", host, parent.ID));
+            }
+
+            if(rbEviction.Checked)
+            {
+                new RPMS_BusinessLogic.PDFConverter().ConvertToPDF(host, tenantDir,
+                string.Format("/Eviction Notice {0}", DateTime.Now.ToString("yyyy-MM-dd")),
+                string.Format("http://{0}/Pages/Documents/Eviction.aspx?id={1}", host, parent.ID));
             }
 
             if(rbNoticeOfEntry.Checked)
             {
-                //Response.Redirect(string.Format("~/Pages/Lease/RentalAgreement.aspx?TenantId={0}", tenantId));
+
+                new RPMS_BusinessLogic.PDFConverter().ConvertToPDF(host, tenantDir,
+                string.Format("/Notice Of Entry {0}", DateTime.Now.ToString("yyyy-MM-dd")),
+                string.Format("http://{0}/Pages/Documents/NoticeOfEntry.aspx?id={1}&reason={2}&date={3}&time={4}", host, parent.ID, txtReasons.Text, txtDateOfEntry.Text, txtTimeOfEntry.Text));
             }
 
             Response.Redirect(string.Format("~/Pages/Tenant/TenantDetail.aspx?id={0}", tenantId));
@@ -60,6 +76,22 @@ namespace RPMS_Web.Pages.Documents
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Default.aspx");
+        }
+
+        protected void rbNoticeOfEntry_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton rb = (RadioButton) sender;
+            rowEntry.Visible = rb.Checked;
+        }
+
+        protected void rbNonRenewal_CheckedChanged(object sender, EventArgs e)
+        {
+            rowEntry.Visible = false;
+        }
+
+        protected void rbEviction_CheckedChanged(object sender, EventArgs e)
+        {
+            rowEntry.Visible = false;
         }
     }
 }

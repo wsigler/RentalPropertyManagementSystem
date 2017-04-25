@@ -57,7 +57,7 @@ namespace RPMS_Web.Pages.Tenant
 
                     // use virtual directory
                     fmCustomers.RootDirectories[0].DirectoryPath = "/files/" + relativeDir.Replace("\\", "/");
-                    fmCustomers.RootDirectories[0].Text = "Tenant " + parentTenant.ID.ToString();
+                    fmCustomers.RootDirectories[0].Text = "Tenant " + parentTenant.FullName;
 
 
 

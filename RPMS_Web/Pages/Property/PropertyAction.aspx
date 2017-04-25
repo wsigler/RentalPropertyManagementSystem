@@ -35,7 +35,7 @@
                                 <asp:TextBox runat="server" CssClass="form-control" ID="txtStreetAddress2" />
                             </div>
                         </div>
-                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                             <asp:TextBox runat="server" CssClass="form-control" ID="txtCity" />
                         </div>
                         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
@@ -43,6 +43,9 @@
                         </div>
                         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                             <asp:TextBox runat="server" CssClass="form-control" ID="txtZipCode" />
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            <asp:TextBox runat="server" CssClass="form-control" ID="txtCounty" />
                         </div>
                     </div>
                     <div class="row">

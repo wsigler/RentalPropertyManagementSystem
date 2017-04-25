@@ -67,6 +67,15 @@ namespace RPMS_Web.Pages.Property {
         protected global::System.Web.UI.WebControls.TextBox txtZipCode;
         
         /// <summary>
+        /// txtCounty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCounty;
+        
+        /// <summary>
         /// txtLat control.
         /// </summary>
         /// <remarks>
