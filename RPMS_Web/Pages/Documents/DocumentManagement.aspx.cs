@@ -45,7 +45,7 @@ namespace RPMS_Web.Pages.Documents
 
             if (rbNonRenewal.Checked)
             {
-                new RPMS_BusinessLogic.PDFConverter().ConvertNonRenewalToPDF(HttpContext.Current.Request.Url.Host + ":52223", parent.ID, nonrenewalDir,
+                new RPMS_BusinessLogic.PDFConverter().ConvertNonRenewalToPDF(HttpContext.Current.Request.Url.Host, parent.ID, nonrenewalDir,
                 string.Format("/Nonrenewal Form {0}", DateTime.Now.ToString("yyyy-MM-dd")));
             }
 
