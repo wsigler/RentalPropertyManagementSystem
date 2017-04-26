@@ -33,7 +33,7 @@ namespace RPMS_Database
             editedPayment.PropertyID = payment.PropertyID;
             editedPayment.TenantID = payment.TenantID;
             editedPayment.PaymentAmount = payment.PaymentAmount;
-            editedPayment.PaymentDate = payment.PaymentDate;
+            editedPayment.PaymentDueDate = payment.PaymentDueDate;
             editedPayment.AmountPaid = payment.AmountPaid;
             editedPayment.DatePaid = payment.DatePaid;
             editedPayment.Balance = payment.Balance;

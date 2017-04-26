@@ -24,48 +24,6 @@
       <Column Name="MaxNumberOfOccupants" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Property" Member="Properties">
-    <Type Name="Property">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="StreetAddress1" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
-      <Column Name="StreetAddress2" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="City" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
-      <Column Name="StateID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ZipCode" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="Lat" Type="System.Decimal" DbType="Decimal(9,6)" CanBeNull="true" />
-      <Column Name="Long" Type="System.Decimal" DbType="Decimal(9,6)" CanBeNull="true" />
-      <Column Name="RentAmount" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
-      <Column Name="DepositAmount" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
-      <Column Name="PetDepositAmount" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
-      <Column Name="TrashDayID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NumberOfBedrooms" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NumberOfBathrooms" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SquareFootageEst" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="EstimatedTax" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="IsRented" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="HasWDConnection" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="HasCentralAC" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="CreatedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DateModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.RentPayment" Member="RentPayments">
-    <Type Name="RentPayment">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PropertyID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="TenantID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PaymentAmount" Type="System.Decimal" DbType="Decimal(7,2) NOT NULL" CanBeNull="false" />
-      <Column Name="PaymentDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="AmountPaid" Type="System.Decimal" DbType="Decimal(7,2)" CanBeNull="true" />
-      <Column Name="DatePaid" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Balance" Type="System.Decimal" DbType="Decimal(7,2)" CanBeNull="true" />
-      <Column Name="ModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.State" Member="States">
     <Type Name="State">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -110,6 +68,49 @@
       <Column Name="DateModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="ModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="FullName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RentPayment" Member="RentPayments">
+    <Type Name="RentPayment">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PropertyID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenantID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PaymentAmount" Type="System.Decimal" DbType="Decimal(7,2) NOT NULL" CanBeNull="false" />
+      <Column Name="PaymentDueDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="AmountPaid" Type="System.Decimal" DbType="Decimal(7,2)" CanBeNull="true" />
+      <Column Name="DatePaid" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Balance" Type="System.Decimal" DbType="Decimal(7,2)" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Property" Member="Properties">
+    <Type Name="Property">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StreetAddress1" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="StreetAddress2" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="StateID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ZipCode" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Lat" Type="System.Decimal" DbType="Decimal(9,6)" CanBeNull="true" />
+      <Column Name="Long" Type="System.Decimal" DbType="Decimal(9,6)" CanBeNull="true" />
+      <Column Name="RentAmount" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Column Name="DepositAmount" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Column Name="PetDepositAmount" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Column Name="TrashDayID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumberOfBedrooms" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NumberOfBathrooms" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SquareFootageEst" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EstimatedTax" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="IsRented" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HasWDConnection" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HasCentralAC" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="County" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

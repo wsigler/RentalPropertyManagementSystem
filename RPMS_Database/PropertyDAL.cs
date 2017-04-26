@@ -32,6 +32,7 @@ namespace RPMS_Database
             editedProperty.City = property.City;
             editedProperty.StateID = property.StateID;
             editedProperty.ZipCode = property.ZipCode;
+            editedProperty.County = property.County;
             editedProperty.Lat = property.Lat;
             editedProperty.Long = property.Long;
             editedProperty.RentAmount = property.RentAmount;

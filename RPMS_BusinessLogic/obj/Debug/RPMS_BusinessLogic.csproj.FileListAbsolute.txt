@@ -8,3 +8,13 @@ C:\Sandbox\RentalPropertyManagementSystem\RPMS_BusinessLogic\bin\Debug\RPMS_Data
 C:\Sandbox\RentalPropertyManagementSystem\RPMS_BusinessLogic\bin\Debug\evohtmltopdf.dll
 C:\Sandbox\RentalPropertyManagementSystem\RPMS_BusinessLogic\bin\Debug\evohtmltopdf.xml
 C:\Sandbox\RentalPropertyManagementSystem\RPMS_BusinessLogic\bin\Debug\evointernal.dat
+C:\git\RentalPropertyManagementSystem\RPMS_BusinessLogic\bin\Debug\RPMS_BusinessLogic.dll
+C:\git\RentalPropertyManagementSystem\RPMS_BusinessLogic\bin\Debug\RPMS_BusinessLogic.pdb
+C:\git\RentalPropertyManagementSystem\RPMS_BusinessLogic\bin\Debug\evohtmltopdf.dll
+C:\git\RentalPropertyManagementSystem\RPMS_BusinessLogic\bin\Debug\RPMS_Database.dll
+C:\git\RentalPropertyManagementSystem\RPMS_BusinessLogic\bin\Debug\RPMS_Database.pdb
+C:\git\RentalPropertyManagementSystem\RPMS_BusinessLogic\bin\Debug\evohtmltopdf.xml
+C:\git\RentalPropertyManagementSystem\RPMS_BusinessLogic\bin\Debug\evointernal.dat
+C:\git\RentalPropertyManagementSystem\RPMS_BusinessLogic\obj\Debug\RPMS_BusinessLogic.csprojResolveAssemblyReference.cache
+C:\git\RentalPropertyManagementSystem\RPMS_BusinessLogic\obj\Debug\RPMS_BusinessLogic.dll
+C:\git\RentalPropertyManagementSystem\RPMS_BusinessLogic\obj\Debug\RPMS_BusinessLogic.pdb
