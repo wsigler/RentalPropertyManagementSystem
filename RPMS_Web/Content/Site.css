@@ -38,6 +38,11 @@ input[type="select"] {
     }
 }
 
+.strong
+{
+    font-weight: bold;
+}
+
 table.list{
     border-collapse:collapse;
     clear:both;
@@ -213,3 +218,30 @@ div.expandedDiv.off
     display: inline;
 }
 
+input[type=submit].link:hover
+{
+    color: #1d60ff;
+    text-decoration: underline;
+}
+
+input[type=submit].btn-link
+{
+    color:#791b1b;
+}
+
+input[type=submit].link:hover
+{
+    color: #1d60ff;
+    text-decoration: underline;
+}
+
+textarea.preferences
+{
+    color:#555555;
+    border:1px solid #d7b89f;
+    padding:3px;
+    font-size:100%;
+    background-color:#fffefc;
+    width: 95%;
+    min-height: 130px;
+}

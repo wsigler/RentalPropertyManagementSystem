@@ -10,7 +10,25 @@
 namespace RPMS_Web.Pages.Payments {
     
     
-    public partial class MakePayment {
+    public partial class AddPayment {
+        
+        /// <summary>
+        /// upPaymentTypes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upPaymentTypes;
+        
+        /// <summary>
+        /// phList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder phList;
         
         /// <summary>
         /// hlBackToList control.
@@ -22,75 +40,66 @@ namespace RPMS_Web.Pages.Payments {
         protected global::System.Web.UI.WebControls.HyperLink hlBackToList;
         
         /// <summary>
-        /// litAddress control.
+        /// repPaymentTypes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litAddress;
+        protected global::System.Web.UI.WebControls.Repeater repPaymentTypes;
         
         /// <summary>
-        /// litTenants control.
+        /// phEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litTenants;
+        protected global::System.Web.UI.WebControls.PlaceHolder phEdit;
         
         /// <summary>
-        /// litAmountDue control.
+        /// hdnID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litAmountDue;
+        protected global::System.Web.UI.WebControls.HiddenField hdnID;
         
         /// <summary>
-        /// litDueDate control.
+        /// txtEntryName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litDueDate;
+        protected global::System.Web.UI.WebControls.TextBox txtEntryName;
         
         /// <summary>
-        /// litBalance control.
+        /// txtDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litBalance;
+        protected global::System.Web.UI.WebControls.TextBox txtDescription;
         
         /// <summary>
-        /// txtPaymentAmount control.
+        /// btnCreate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPaymentAmount;
+        protected global::System.Web.UI.WebControls.Button btnCreate;
         
         /// <summary>
-        /// txtPaymentDate control.
+        /// btnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPaymentDate;
-        
-        /// <summary>
-        /// btnSubmitPayment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmitPayment;
+        protected global::System.Web.UI.WebControls.Button btnCancel;
     }
 }

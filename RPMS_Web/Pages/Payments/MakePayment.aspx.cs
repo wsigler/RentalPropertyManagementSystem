@@ -5,20 +5,22 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using RPMS_Database;
+using RPMS_BusinessLogic;
 
 namespace RPMS_Web.Pages.Payments
 {
     public partial class MakePayment : System.Web.UI.Page
     {
         private RentalManagementDBDataContext db = new RentalManagementDBDataContext();
-        private RPMS_Database.RentPayment payment = null;
+        private RPMS_Database.Payment payment = null;
+        private Enums.PaymentTypes paymentTypes = new Enums.PaymentTypes();
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
             if (Request.QueryString["id"] != null)
             {
-                payment = db.RentPayments.FirstOrDefault(x => x.ID == int.Parse(Request.QueryString["id"]));
+                payment = db.Payments.FirstOrDefault(x => x.ID == int.Parse(Request.QueryString["id"]));
 
                 if (!IsPostBack)
                 {
@@ -43,11 +45,11 @@ namespace RPMS_Web.Pages.Payments
 
             hlBackToList.NavigateUrl = string.Format("~/Pages/Payments/PaymentList.aspx?id={0}", Request.QueryString["id"]);
 
-            litPaymentAmount.Text = payment.PaymentAmount.ToString("##,###.00");
-            litPaymentDate.Text = payment.PaymentDueDate.ToString("MM/dd/yyyy");
-            txtAmountPaid.Text = (payment.AmountPaid.HasValue) ? payment.AmountPaid.Value.ToString("##,###.00") : payment.PaymentAmount.ToString("##,###.00");
-            txtDatePaid.Text = (payment.DatePaid.HasValue) ? payment.DatePaid.Value.ToString("MM/dd/yyyy") : DateTime.Now.ToString("MM/dd/yyyy");
-            litBalance.Text = (payment.Balance.HasValue) ? payment.Balance.Value.ToString("##,###.00") : string.Empty;
+            litAmountDue.Text = payment.AmountDue.ToString("##,###.00");
+            litDueDate.Text = payment.DueDate.ToString("MM/dd/yyyy");
+            txtPaymentAmount.Text = (payment.PaymentAmount.HasValue) ? payment.PaymentAmount.Value.ToString("##,###.00") : payment.AmountDue.ToString("##,###.00");
+            txtPaymentDate.Text = (payment.PaymentDate.HasValue) ? payment.PaymentDate.Value.ToString("MM/dd/yyyy") : DateTime.Now.ToString("MM/dd/yyyy");
+            litBalance.Text = payment.Balance.ToString("##,###.00");
             
         }
 
@@ -55,14 +57,32 @@ namespace RPMS_Web.Pages.Payments
         {
             if (payment != null)
             {
-                payment.AmountPaid = decimal.Parse(txtAmountPaid.Text);
-                payment.DatePaid = DateTime.Parse(txtDatePaid.Text);
-                payment.Balance = payment.PaymentAmount - decimal.Parse(txtAmountPaid.Text);
+                payment.PaymentAmount = decimal.Parse(txtPaymentAmount.Text);
+                payment.PaymentDate = DateTime.Parse(txtPaymentDate.Text);
+                payment.Balance = payment.AmountDue - decimal.Parse(txtPaymentAmount.Text);
+
+                //if (payment.Balance == payment.AmountDue)
+                //{
+                //    payment.Balance = payment.AmountDue - decimal.Parse(txtPaymentAmount.Text);
+                //}
+                //else
+                //{
+                //    if(payment.Balance == 0)
+                //    {
+                //        
+                //    }
+                //    else
+                //    {
+                //        if(payment.Balance < payment.AmountDue)
+                //        { }
+                //    }
+                //}
+                
                 payment.ModifiedDate = DateTime.Now;
                 payment.ModifiedBy = 1;
             }
 
-            new RentPaymentDAL().UpdatePayment(payment);
+            new PaymentDAL().UpdatePayment(payment);
 
             Response.Redirect(string.Format("PaymentList.aspx?id={0}", payment.TenantID));
         }

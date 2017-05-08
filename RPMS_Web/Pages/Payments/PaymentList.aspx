@@ -30,22 +30,24 @@
     <div class="table-responsive">
         <asp:Repeater runat="server" id="repPayments">
             <HeaderTemplate>
-                <table class="table table-striped w60">
+                <table class="table table-striped w100">
                     <tr>
+                        <th class="table-headers tableHead w15">Due Date</th>
+                        <th class="table-headers tableHead w15">Type</th>
+                        <th class="table-headers tableHead w10 tar">Amount Due</th>
                         <th class="table-headers tableHead w15">Payment Date</th>
-                        <th class="table-headers tableHead w15 tar">Payment Amount</th>
-                        <th class="table-headers tableHead w20">Paid Date</th>
-                        <th class="table-headers tableHead w15 tar">Amount Paid</th>
+                        <th class="table-headers tableHead w10 tar">Payment Amount</th>
                         <th class="table-headers tableHead w15 tar">Balance</th>
                         <th class="w20 tar">&nbsp;</th>
                     </tr>
             </HeaderTemplate>
             <ItemTemplate>
                     <tr>
+                        <td><asp:Literal runat="server" ID="litDueDate" /></td>
+                        <td><asp:Literal runat="server" ID="litType" /></td>
+                        <td class="tar"><asp:Literal runat="server" ID="litAmountDue" /></td>
                         <td><asp:Literal runat="server" ID="litPaymentDate" /></td>
                         <td class="tar"><asp:Literal runat="server" ID="litPaymentAmount" /></td>
-                        <td><asp:Literal runat="server" ID="litPaidDate" /></td>
-                        <td class="tar"><asp:Literal runat="server" ID="litAmountPaid" /></td>
                         <td class="tar"><asp:Literal runat="server" ID="litBalance" /></td>
                         <td class="f80 tar">
                             <asp:HyperLink runat="server" ID="hlLease" Text="Make Payment"/>
@@ -57,7 +59,8 @@
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>
-                        <td colspan="2" class="tar f120">Total Balance: $<asp:Literal runat="server" ID="litTotalBalance" /></td>
+                        <td>&nbsp;</td>
+                        <td colspan="2" class="tar f120 strong">Total Balance: $<asp:Literal runat="server" ID="litTotalBalance" /></td>
                         <td>&nbsp;</td>
                     </tr>
                 </table>

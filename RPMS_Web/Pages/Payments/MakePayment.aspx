@@ -41,10 +41,10 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                            Payment Amount: <asp:Literal runat="server" ID="litPaymentAmount" />
+                            Amount Due: <asp:Literal runat="server" ID="litAmountDue" />
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                            Payment Date: <asp:Literal runat="server" ID="litPaymentDate" />
+                            Due Date: <asp:Literal runat="server" ID="litDueDate" />
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                             Balance: <asp:Literal runat="server" ID="litBalance" />
@@ -61,10 +61,10 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                            <asp:TextBox runat="server" CssClass="form-control" ID="txtAmountPaid" />
+                            <asp:TextBox runat="server" CssClass="form-control" ID="txtPaymentAmount" />
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                            <asp:TextBox runat="server" CssClass="form-control datepicker" ID="txtDatePaid" />
+                            <asp:TextBox runat="server" CssClass="form-control datepicker" ID="txtPaymentDate" />
                         </div>
                     </div>
                 </div>

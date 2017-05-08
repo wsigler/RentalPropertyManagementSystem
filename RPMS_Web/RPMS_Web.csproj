@@ -279,6 +279,7 @@
     <Content Include="Pages\Lease\Lease.aspx" />
     <Content Include="Pages\Lease\LeaseList.aspx" />
     <Content Include="Pages\Lease\RentalAgreement.aspx" />
+    <Content Include="Pages\Payments\AddPayment.aspx" />
     <Content Include="Pages\Payments\MakePayment.aspx" />
     <Content Include="Pages\Payments\PaymentList.aspx" />
     <Content Include="Pages\Property\PropertyAction.aspx" />
@@ -323,7 +324,9 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
     <Content Include="Images\32x32\Thumbs.db" />
@@ -519,6 +522,13 @@
     </Compile>
     <Compile Include="Pages\Lease\RentalAgreement.aspx.designer.cs">
       <DependentUpon>RentalAgreement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Payments\AddPayment.aspx.cs">
+      <DependentUpon>AddPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Payments\AddPayment.aspx.designer.cs">
+      <DependentUpon>AddPayment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Payments\MakePayment.aspx.cs">
       <DependentUpon>MakePayment.aspx</DependentUpon>

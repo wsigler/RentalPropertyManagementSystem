@@ -86,8 +86,9 @@
                                 </div>
                             </div>
                             <div class="row">
-                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                <asp:CheckBox runat="server" ID="cbIsActive" Text="Active" />
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <asp:CheckBox runat="server" ID="cbIsActive" Text="Active" />
+                                </div>
                             </div>
                         </div>
                     </div>

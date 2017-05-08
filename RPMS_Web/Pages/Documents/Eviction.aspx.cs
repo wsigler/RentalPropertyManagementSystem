@@ -20,12 +20,12 @@ namespace RPMS_Web.Pages.Documents
                 var otherTenants = db.Tenants.Where(x => x.ParentID == tenant.ID).ToList();
                 var property = db.Properties.FirstOrDefault(x => x.ID == tenant.PropertyID);
                 var state = db.States.FirstOrDefault(x => x.Id == property.StateID);
-                var payments = db.RentPayments.Where(x => x.TenantID == tenant.ID && x.PaymentDueDate < DateTime.Now).ToList();
+                var payments = db.Payments.Where(x => x.TenantID == tenant.ID && x.DueDate < DateTime.Now).ToList();
 
                 decimal totalAmountDue = 0M;
 
                 payments.ForEach(x => {
-                    totalAmountDue += x.Balance.Value;
+                    totalAmountDue += x.Balance;
                 });
 
                 litTenantNames.Text = tenant.FullName;
