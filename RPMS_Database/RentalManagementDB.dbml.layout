@@ -32,16 +32,16 @@
         <elementListCompartment Id="5126891f-c496-442f-8fc7-a91a65a18e5a" absoluteBounds="9.765, 1.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="957a0670-dd6a-4cf4-af0c-c80bf35ee250" absoluteBounds="3.75, 4.625, 2, 2.7324039713541666">
-      <DataClassMoniker Name="/RentalManagementDBDataContext/RentPayment" />
-      <nestedChildShapes>
-        <elementListCompartment Id="ddf57a21-60f3-486a-b176-94635aa8a445" absoluteBounds="3.7649999999999997, 5.085, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="b4bc52a4-5f75-4a4e-b7f8-ba487f3885f8" absoluteBounds="0.875, 2.875, 2, 5.6169254557291657">
       <DataClassMoniker Name="/RentalManagementDBDataContext/Property" />
       <nestedChildShapes>
         <elementListCompartment Id="a6851fdc-49b7-467c-87d9-529750a337d4" absoluteBounds="0.89000000000000012, 3.335, 1.9700000000000002, 5.0569254557291661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b39868d9-a12c-43ea-83a0-dc318c70fc50" absoluteBounds="3.75, 4.125, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/RentalManagementDBDataContext/Payment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ad9cdbb7-c84a-4096-b342-3b5466eaf763" absoluteBounds="3.7649999999999997, 4.585, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

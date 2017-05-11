@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums.cs" />
     <Compile Include="PaymentBL.cs" />
     <Compile Include="PDFConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

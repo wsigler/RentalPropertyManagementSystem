@@ -15,19 +15,21 @@ namespace RPMS_BusinessLogic
         public void CreatePayments(int tenantId, int propertyId, DateTime sDate, DateTime eDate, decimal proRateAmount)
         {
             var property = db.Properties.FirstOrDefault(x => x.ID == propertyId);
-            var payments = new List<RentPayment>();
+            var payments = new List<Payment>();
             var dateSpan = (eDate.Month + eDate.Year * 12) - (sDate.Month + sDate.Year * 12);
 
-            if(proRateAmount > 0)
+            if (proRateAmount > 0)
             {
-                RentPayment payment = new RentPayment();
+                Payment payment = new Payment();
                 payment.TenantID = tenantId;
                 payment.PropertyID = propertyId;
-                payment.PaymentDueDate = sDate;
+                payment.DueDate = sDate;
+                payment.AmountDue = proRateAmount;
                 payment.PaymentAmount = proRateAmount;
-                payment.AmountPaid = proRateAmount;
-                payment.DatePaid = sDate;
+                payment.PaymentDate = sDate;
                 payment.Balance = 0;
+                payment.ModifiedBy = 1;
+                payment.ModifiedDate = DateTime.Now;
                 payments.Add(payment);
             }
             else
@@ -37,18 +39,18 @@ namespace RPMS_BusinessLogic
 
             for (int x = 1; x <= dateSpan; x++)
             {
-                RentPayment payment = new RentPayment();
+                Payment payment = new Payment();
                 payment.TenantID = tenantId;
                 payment.PropertyID = propertyId;
                 DateTime paymentDate = (proRateAmount > 0) ? sDate.AddMonths(x) : sDate.AddMonths(x - 1);
-                payment.PaymentDueDate = new DateTime(paymentDate.Year, paymentDate.Month, 5);
-                payment.PaymentAmount = property.RentAmount;
+                payment.DueDate = new DateTime(paymentDate.Year, paymentDate.Month, 5);
+                payment.AmountDue = property.RentAmount;
                 payment.Balance = property.RentAmount;
-               
+
                 payments.Add(payment);
             }
 
-            new RentPaymentDAL().AddPayments(payments);
+            new PaymentDAL().AddPayments(payments);
         }
 
         public decimal ProrateAmount(DateTime sDate, decimal rentAmount)
@@ -79,23 +81,23 @@ namespace RPMS_BusinessLogic
                 eDate = new DateTime(DateTime.Now.Month, 6, DateTime.Now.Year);
             }
 
-            var payment = db.RentPayments.FirstOrDefault(x => x.PropertyID == propertyId && (x.PaymentDueDate >= sDate && x.PaymentDueDate <= eDate));
+            var payment = db.Payments.FirstOrDefault(x => x.PropertyID == propertyId && (x.DueDate >= sDate && x.DueDate <= eDate));
 
-            if(payment != null)
+            if (payment != null)
             {
-                if(payment.DatePaid.HasValue)
+                if (payment.PaymentDate.HasValue)
                 {
 
-                    return (payment.Balance.Value > 0) ? payment.Balance.Value : 0M;
+                    return payment.Balance;
                 }
                 else
                 {
-                    return payment.PaymentAmount;
+                    return payment.AmountDue;
                 }
             }
             else
             {
-                return payment.PaymentAmount;
+                return payment.AmountDue;
             }
         }
     }

@@ -45,12 +45,12 @@ namespace RPMS_Database
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
-    partial void InsertRentPayment(RentPayment instance);
-    partial void UpdateRentPayment(RentPayment instance);
-    partial void DeleteRentPayment(RentPayment instance);
     partial void InsertProperty(Property instance);
     partial void UpdateProperty(Property instance);
     partial void DeleteProperty(Property instance);
+    partial void InsertPayment(Payment instance);
+    partial void UpdatePayment(Payment instance);
+    partial void DeletePayment(Payment instance);
     #endregion
 		
 		public RentalManagementDBDataContext() : 
@@ -123,19 +123,19 @@ namespace RPMS_Database
 			}
 		}
 		
-		public System.Data.Linq.Table<RentPayment> RentPayments
-		{
-			get
-			{
-				return this.GetTable<RentPayment>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Property> Properties
 		{
 			get
 			{
 				return this.GetTable<Property>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Payment> Payments
+		{
+			get
+			{
+				return this.GetTable<Payment>();
 			}
 		}
 	}
@@ -1530,284 +1530,6 @@ namespace RPMS_Database
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.RentPayment")]
-	public partial class RentPayment : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private int _PropertyID;
-		
-		private int _TenantID;
-		
-		private decimal _PaymentAmount;
-		
-		private System.DateTime _PaymentDueDate;
-		
-		private System.Nullable<decimal> _AmountPaid;
-		
-		private System.Nullable<System.DateTime> _DatePaid;
-		
-		private System.Nullable<decimal> _Balance;
-		
-		private System.Nullable<int> _ModifiedBy;
-		
-		private System.Nullable<System.DateTime> _ModifiedDate;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnPropertyIDChanging(int value);
-    partial void OnPropertyIDChanged();
-    partial void OnTenantIDChanging(int value);
-    partial void OnTenantIDChanged();
-    partial void OnPaymentAmountChanging(decimal value);
-    partial void OnPaymentAmountChanged();
-    partial void OnPaymentDueDateChanging(System.DateTime value);
-    partial void OnPaymentDueDateChanged();
-    partial void OnAmountPaidChanging(System.Nullable<decimal> value);
-    partial void OnAmountPaidChanged();
-    partial void OnDatePaidChanging(System.Nullable<System.DateTime> value);
-    partial void OnDatePaidChanged();
-    partial void OnBalanceChanging(System.Nullable<decimal> value);
-    partial void OnBalanceChanged();
-    partial void OnModifiedByChanging(System.Nullable<int> value);
-    partial void OnModifiedByChanged();
-    partial void OnModifiedDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnModifiedDateChanged();
-    #endregion
-		
-		public RentPayment()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PropertyID", DbType="Int NOT NULL")]
-		public int PropertyID
-		{
-			get
-			{
-				return this._PropertyID;
-			}
-			set
-			{
-				if ((this._PropertyID != value))
-				{
-					this.OnPropertyIDChanging(value);
-					this.SendPropertyChanging();
-					this._PropertyID = value;
-					this.SendPropertyChanged("PropertyID");
-					this.OnPropertyIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenantID", DbType="Int NOT NULL")]
-		public int TenantID
-		{
-			get
-			{
-				return this._TenantID;
-			}
-			set
-			{
-				if ((this._TenantID != value))
-				{
-					this.OnTenantIDChanging(value);
-					this.SendPropertyChanging();
-					this._TenantID = value;
-					this.SendPropertyChanged("TenantID");
-					this.OnTenantIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaymentAmount", DbType="Decimal(7,2) NOT NULL")]
-		public decimal PaymentAmount
-		{
-			get
-			{
-				return this._PaymentAmount;
-			}
-			set
-			{
-				if ((this._PaymentAmount != value))
-				{
-					this.OnPaymentAmountChanging(value);
-					this.SendPropertyChanging();
-					this._PaymentAmount = value;
-					this.SendPropertyChanged("PaymentAmount");
-					this.OnPaymentAmountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaymentDueDate", DbType="DateTime NOT NULL")]
-		public System.DateTime PaymentDueDate
-		{
-			get
-			{
-				return this._PaymentDueDate;
-			}
-			set
-			{
-				if ((this._PaymentDueDate != value))
-				{
-					this.OnPaymentDueDateChanging(value);
-					this.SendPropertyChanging();
-					this._PaymentDueDate = value;
-					this.SendPropertyChanged("PaymentDueDate");
-					this.OnPaymentDueDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AmountPaid", DbType="Decimal(7,2)")]
-		public System.Nullable<decimal> AmountPaid
-		{
-			get
-			{
-				return this._AmountPaid;
-			}
-			set
-			{
-				if ((this._AmountPaid != value))
-				{
-					this.OnAmountPaidChanging(value);
-					this.SendPropertyChanging();
-					this._AmountPaid = value;
-					this.SendPropertyChanged("AmountPaid");
-					this.OnAmountPaidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DatePaid", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DatePaid
-		{
-			get
-			{
-				return this._DatePaid;
-			}
-			set
-			{
-				if ((this._DatePaid != value))
-				{
-					this.OnDatePaidChanging(value);
-					this.SendPropertyChanging();
-					this._DatePaid = value;
-					this.SendPropertyChanged("DatePaid");
-					this.OnDatePaidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Balance", DbType="Decimal(7,2)")]
-		public System.Nullable<decimal> Balance
-		{
-			get
-			{
-				return this._Balance;
-			}
-			set
-			{
-				if ((this._Balance != value))
-				{
-					this.OnBalanceChanging(value);
-					this.SendPropertyChanging();
-					this._Balance = value;
-					this.SendPropertyChanged("Balance");
-					this.OnBalanceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedBy", DbType="Int")]
-		public System.Nullable<int> ModifiedBy
-		{
-			get
-			{
-				return this._ModifiedBy;
-			}
-			set
-			{
-				if ((this._ModifiedBy != value))
-				{
-					this.OnModifiedByChanging(value);
-					this.SendPropertyChanging();
-					this._ModifiedBy = value;
-					this.SendPropertyChanged("ModifiedBy");
-					this.OnModifiedByChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ModifiedDate
-		{
-			get
-			{
-				return this._ModifiedDate;
-			}
-			set
-			{
-				if ((this._ModifiedDate != value))
-				{
-					this.OnModifiedDateChanging(value);
-					this.SendPropertyChanging();
-					this._ModifiedDate = value;
-					this.SendPropertyChanged("ModifiedDate");
-					this.OnModifiedDateChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Property")]
 	public partial class Property : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2421,6 +2143,308 @@ namespace RPMS_Database
 					this._County = value;
 					this.SendPropertyChanged("County");
 					this.OnCountyChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Payment")]
+	public partial class Payment : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private int _PropertyID;
+		
+		private int _TenantID;
+		
+		private int _TypeID;
+		
+		private decimal _AmountDue;
+		
+		private System.DateTime _DueDate;
+		
+		private System.Nullable<decimal> _PaymentAmount;
+		
+		private System.Nullable<System.DateTime> _PaymentDate;
+		
+		private decimal _Balance;
+		
+		private System.Nullable<int> _ModifiedBy;
+		
+		private System.Nullable<System.DateTime> _ModifiedDate;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnPropertyIDChanging(int value);
+    partial void OnPropertyIDChanged();
+    partial void OnTenantIDChanging(int value);
+    partial void OnTenantIDChanged();
+    partial void OnTypeIDChanging(int value);
+    partial void OnTypeIDChanged();
+    partial void OnAmountDueChanging(decimal value);
+    partial void OnAmountDueChanged();
+    partial void OnDueDateChanging(System.DateTime value);
+    partial void OnDueDateChanged();
+    partial void OnPaymentAmountChanging(System.Nullable<decimal> value);
+    partial void OnPaymentAmountChanged();
+    partial void OnPaymentDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnPaymentDateChanged();
+    partial void OnBalanceChanging(decimal value);
+    partial void OnBalanceChanged();
+    partial void OnModifiedByChanging(System.Nullable<int> value);
+    partial void OnModifiedByChanged();
+    partial void OnModifiedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnModifiedDateChanged();
+    #endregion
+		
+		public Payment()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PropertyID", DbType="Int NOT NULL")]
+		public int PropertyID
+		{
+			get
+			{
+				return this._PropertyID;
+			}
+			set
+			{
+				if ((this._PropertyID != value))
+				{
+					this.OnPropertyIDChanging(value);
+					this.SendPropertyChanging();
+					this._PropertyID = value;
+					this.SendPropertyChanged("PropertyID");
+					this.OnPropertyIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenantID", DbType="Int NOT NULL")]
+		public int TenantID
+		{
+			get
+			{
+				return this._TenantID;
+			}
+			set
+			{
+				if ((this._TenantID != value))
+				{
+					this.OnTenantIDChanging(value);
+					this.SendPropertyChanging();
+					this._TenantID = value;
+					this.SendPropertyChanged("TenantID");
+					this.OnTenantIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeID", DbType="Int NOT NULL")]
+		public int TypeID
+		{
+			get
+			{
+				return this._TypeID;
+			}
+			set
+			{
+				if ((this._TypeID != value))
+				{
+					this.OnTypeIDChanging(value);
+					this.SendPropertyChanging();
+					this._TypeID = value;
+					this.SendPropertyChanged("TypeID");
+					this.OnTypeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AmountDue", DbType="Decimal(7,2) NOT NULL")]
+		public decimal AmountDue
+		{
+			get
+			{
+				return this._AmountDue;
+			}
+			set
+			{
+				if ((this._AmountDue != value))
+				{
+					this.OnAmountDueChanging(value);
+					this.SendPropertyChanging();
+					this._AmountDue = value;
+					this.SendPropertyChanged("AmountDue");
+					this.OnAmountDueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DueDate", DbType="DateTime NOT NULL")]
+		public System.DateTime DueDate
+		{
+			get
+			{
+				return this._DueDate;
+			}
+			set
+			{
+				if ((this._DueDate != value))
+				{
+					this.OnDueDateChanging(value);
+					this.SendPropertyChanging();
+					this._DueDate = value;
+					this.SendPropertyChanged("DueDate");
+					this.OnDueDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaymentAmount", DbType="Decimal(7,2)")]
+		public System.Nullable<decimal> PaymentAmount
+		{
+			get
+			{
+				return this._PaymentAmount;
+			}
+			set
+			{
+				if ((this._PaymentAmount != value))
+				{
+					this.OnPaymentAmountChanging(value);
+					this.SendPropertyChanging();
+					this._PaymentAmount = value;
+					this.SendPropertyChanged("PaymentAmount");
+					this.OnPaymentAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaymentDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> PaymentDate
+		{
+			get
+			{
+				return this._PaymentDate;
+			}
+			set
+			{
+				if ((this._PaymentDate != value))
+				{
+					this.OnPaymentDateChanging(value);
+					this.SendPropertyChanging();
+					this._PaymentDate = value;
+					this.SendPropertyChanged("PaymentDate");
+					this.OnPaymentDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Balance", DbType="Decimal(7,2) NOT NULL")]
+		public decimal Balance
+		{
+			get
+			{
+				return this._Balance;
+			}
+			set
+			{
+				if ((this._Balance != value))
+				{
+					this.OnBalanceChanging(value);
+					this.SendPropertyChanging();
+					this._Balance = value;
+					this.SendPropertyChanged("Balance");
+					this.OnBalanceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedBy", DbType="Int")]
+		public System.Nullable<int> ModifiedBy
+		{
+			get
+			{
+				return this._ModifiedBy;
+			}
+			set
+			{
+				if ((this._ModifiedBy != value))
+				{
+					this.OnModifiedByChanging(value);
+					this.SendPropertyChanging();
+					this._ModifiedBy = value;
+					this.SendPropertyChanged("ModifiedBy");
+					this.OnModifiedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ModifiedDate
+		{
+			get
+			{
+				return this._ModifiedDate;
+			}
+			set
+			{
+				if ((this._ModifiedDate != value))
+				{
+					this.OnModifiedDateChanging(value);
+					this.SendPropertyChanging();
+					this._ModifiedDate = value;
+					this.SendPropertyChanged("ModifiedDate");
+					this.OnModifiedDateChanged();
 				}
 			}
 		}
