@@ -154,8 +154,8 @@ namespace RPMS_Web
                 LeaseInfo propLease = leases.FirstOrDefault(x => x.PropertyID == property.ID);
                 var payments = db.Payments.Where(x => x.PropertyID == property.ID && x.TenantID == tenant.ID).ToList();
 
-                if(DateTime.Now.Day > 5)
-                {
+                //if(DateTime.Now.Day > 5)
+                //{
                     var compareDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 5);
 
                     var payment = payments.FirstOrDefault(x => x.DueDate == compareDate);
@@ -163,7 +163,8 @@ namespace RPMS_Web
                     {
                         cbRentCurrent.Checked = (payment.Balance == 0);
                     }
-                }
+                //}
+
 
                 if (propLease != null)
                 {

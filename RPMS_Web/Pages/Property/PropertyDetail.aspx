@@ -74,9 +74,9 @@
                 </RootDirectories>
                 <FileTypes>
                     <iz:FileType Extensions="zip, rar, iso" Name="Archive" SmallImageUrl="/images/16x16/compressed.gif" LargeImageUrl="/images/32x32/compressed.gif"></iz:FileType>
-                    <iz:FileType Extensions="doc, rtf" Name="Microsoft Word Document" SmallImageUrl="/images/16x16/word.gif" LargeImageUrl="/images/32x32/word.gif"></iz:FileType>
-                    <iz:FileType Extensions="xls, csv" Name="Microsoft Excel Worksheet" SmallImageUrl="/images/16x16/excel.gif" LargeImageUrl="/images/32x32/excel.gif"></iz:FileType>
-                    <iz:FileType Extensions="ppt, pps" Name="Microsoft PowerPoint Presentation" SmallImageUrl="/images/16x16/PowerPoint.gif" LargeImageUrl="/images/32x32/PowerPoint.gif"></iz:FileType>
+                    <iz:FileType Extensions="doc, docx, rtf" Name="Microsoft Word Document" SmallImageUrl="/images/16x16/word.gif" LargeImageUrl="/images/32x32/word.gif"></iz:FileType>
+                    <iz:FileType Extensions="xls, xlsx, csv" Name="Microsoft Excel Worksheet" SmallImageUrl="/images/16x16/excel.gif" LargeImageUrl="/images/32x32/excel.gif"></iz:FileType>
+                    <iz:FileType Extensions="ppt, pptx, pps" Name="Microsoft PowerPoint Presentation" SmallImageUrl="/images/16x16/PowerPoint.gif" LargeImageUrl="/images/32x32/PowerPoint.gif"></iz:FileType>
                     <iz:FileType Extensions="pdf" Name="Adobe PDF" SmallImageUrl="/images/16x16/pdf.png" LargeImageUrl="/images/32x32/pdf.png"></iz:FileType>                    
                     <iz:FileType Extensions="gif, jpg, png" Name="Image" SmallImageUrl="/images/16x16/image.gif" LargeImageUrl="/images/32x32/image.gif"></iz:FileType>
                     <iz:FileType SmallImageUrl="/images/16x16/media.gif" Name="Windows Media File" Extensions="mp3,wma,vmv,avi,divx" LargeImageUrl="/images/32x32/media.gif"></iz:FileType>
