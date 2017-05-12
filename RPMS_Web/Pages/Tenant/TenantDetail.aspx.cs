@@ -18,6 +18,8 @@ namespace RPMS_Web.Pages.Tenant
         private List<RPMS_Database.Property> properties = null;
         private List<State> states = null;
         private RPMS_Database.Tenant tenant = null;
+        private decimal totalBalance = 0M;
+        private List<Dictionary> dictionaries = null;
 
         #endregion
 
@@ -58,18 +60,22 @@ namespace RPMS_Web.Pages.Tenant
                     // use virtual directory
                     fmCustomers.RootDirectories[0].DirectoryPath = "/files/" + relativeDir.Replace("\\", "/");
                     fmCustomers.RootDirectories[0].Text = "Tenant " + parentTenant.FullName;
-
-
-
+                    dictionaries = db.Dictionaries.Where(x => x.Category == "Payments").ToList();
                     PopulateDetails();
+                    PopulateOutstandingFees();
                 }
             }
-            
-
-            
         }
 
         #region Populate Data
+
+        public void PopulateOutstandingFees()
+        {
+            var payments = db.Payments.Where(x => x.TenantID == tenant.ID && x.DueDate > DateTime.Now.AddDays(-120) && x.DueDate < DateTime.Now.AddDays(20) && x.Balance > 0);
+            repPayments.DataSource = payments.OrderBy(x => x.DueDate).ToList();
+            repPayments.ItemDataBound += new RepeaterItemEventHandler(repPayments_DataBinding);
+            repPayments.DataBind();
+        }
 
         private void PopulateDetails()
         {
@@ -97,6 +103,43 @@ namespace RPMS_Web.Pages.Tenant
         }
 
         #endregion
+
+        protected void repPayments_DataBinding(object sender, RepeaterItemEventArgs e)
+        {
+            RepeaterItem item = (RepeaterItem) e.Item;
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                var payment = (RPMS_Database.Payment) e.Item.DataItem;
+                Literal litAmountDue = (Literal) e.Item.FindControl("litAmountDue");
+                Literal litType = (Literal) e.Item.FindControl("litType");
+                Literal litDueDate = (Literal) e.Item.FindControl("litDueDate");
+                Literal litPaymentAmount = (Literal) e.Item.FindControl("litPaymentAmount");
+                Literal litPaymentDate = (Literal) e.Item.FindControl("litPaymentDate");
+                Literal litBalance = (Literal) e.Item.FindControl("litBalance");
+                HyperLink hlLease = (HyperLink) e.Item.FindControl("hlLease");
+
+                litAmountDue.Text = payment.AmountDue.ToString("##,###.00");
+                litDueDate.Text = payment.DueDate.ToString("MM/dd/yyyy");
+                litPaymentAmount.Text = (payment.PaymentAmount.HasValue) ? payment.PaymentAmount.Value.ToString("##,###.00") : string.Empty;
+                litPaymentDate.Text = (payment.PaymentDate.HasValue) ? payment.PaymentDate.Value.ToString("MM/dd/yyyy") : string.Empty;
+                litBalance.Text = payment.Balance.ToString("##,###.00");
+                totalBalance += payment.Balance;
+                litType.Text = dictionaries.FirstOrDefault(x => x.ID == payment.TypeID).EntryName;
+
+                hlLease.NavigateUrl = string.Format("MakePayment.aspx?id={0}", payment.ID);
+
+                if (payment.Balance == 0)
+                {
+                    hlLease.Text = "Edit Payment";
+                }
+
+            }
+            if (e.Item.ItemType == ListItemType.Footer)
+            {
+                Literal litTotalBalance = (Literal) e.Item.FindControl("litTotalBalance");
+                litTotalBalance.Text = totalBalance.ToString("###,###.00");
+            }
+        }
 
         #endregion
     }

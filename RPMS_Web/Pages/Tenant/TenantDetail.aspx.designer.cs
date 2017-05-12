@@ -103,6 +103,15 @@ namespace RPMS_Web.Pages.Tenant {
         protected global::System.Web.UI.WebControls.HyperLink hlAddress;
         
         /// <summary>
+        /// repPayments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater repPayments;
+        
+        /// <summary>
         /// fmCustomers control.
         /// </summary>
         /// <remarks>

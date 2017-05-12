@@ -22,14 +22,13 @@
             </HeaderTemplate>
             <ItemTemplate>
                     <tr>
-                        <td><asp:Literal runat="server" ID="litFullName" /></td>
+                        <td><asp:HyperLink runat="server" ID="hlFullName" /></td>
                         <td><asp:HyperLink runat="server" ID="hlStreetAddress1" /></td>
                         <td><asp:Literal runat="server" ID="litEmail" /></td>
                         <td><asp:Literal runat="server" ID="litPhone" /></td>
                         <td><asp:Literal runat="server" ID="litPrimaryFullName" /></td>
                         <td class="f80 tar">
-                            <asp:HyperLink runat="server" ID="hlEdit" Text="Edit" /> |
-                            <asp:HyperLink runat="server" ID="hlDetails" Text="Details" /> 
+                            <asp:HyperLink runat="server" ID="hlEdit" Text="Edit" />
                             <asp:HyperLink runat="server" ID="hlLease" /> 
                             <asp:HyperLink runat="server" ID="hlPayment" />
 
