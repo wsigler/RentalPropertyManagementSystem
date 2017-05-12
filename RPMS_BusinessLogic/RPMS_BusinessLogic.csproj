@@ -33,6 +33,10 @@
     <Reference Include="evohtmltopdf">
       <HintPath>..\RPMS_References\evohtmltopdf.dll</HintPath>
     </Reference>
+    <Reference Include="SimpleFeedReader, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleFeedReader.1.0.7\lib\net40-client\SimpleFeedReader.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -54,6 +58,10 @@
       <Project>{639eec54-5556-4ee5-8d28-b8bc5452fabf}</Project>
       <Name>RPMS_Database</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Documentation.chm" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

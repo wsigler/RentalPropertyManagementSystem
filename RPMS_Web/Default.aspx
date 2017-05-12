@@ -199,7 +199,13 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                  Some table here
+                                    <asp:Repeater ID="repFeed" runat="server">
+                                        <HeaderTemplate></HeaderTemplate>
+                                        <ItemTemplate>
+                                            <asp:Literal runat="server" ID="lt" />
+                                        </ItemTemplate>
+                                        <FooterTemplate></FooterTemplate>
+                                    </asp:Repeater>
                                 </div>
                             </div>
                         </div>

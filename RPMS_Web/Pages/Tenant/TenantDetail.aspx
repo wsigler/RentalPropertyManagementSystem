@@ -9,7 +9,8 @@
         <div>
             <a href="TenantList.aspx">Back To List</a> |
             <asp:HyperLink runat="server" ID="hlEditTenant">Edit</asp:HyperLink> |
-            <asp:HyperLink runat="server" ID="hlCreateLeaseInfo" />
+            <asp:HyperLink runat="server" ID="hlCreateLeaseInfo" /> |
+            <asp:HyperLink runat="server" ID="hlPayment" />
         </div>
         <fieldset class="form-group" style="margin-right: 0px; margin-left:0px">
             <legend>Personal Info</legend>

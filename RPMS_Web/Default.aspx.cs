@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using RPMS_Database;
 using System.Globalization;
+using System.Xml;
+using System.ServiceModel.Syndication;
 
 namespace RPMS_Web
 {
@@ -27,6 +29,7 @@ namespace RPMS_Web
                 PopulatePropertyList();
                 PopulateTenantList();
                 PopulateLeaseList();
+                RSSFeed();
             }
         }
 
@@ -278,6 +281,38 @@ namespace RPMS_Web
 
         }
 
+        protected void repFeed_DataBind(object sender, RepeaterItemEventArgs e)
+        {
+            RepeaterItem item = (RepeaterItem) e.Item;
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                var something = (string) e.Item.DataItem;
+                Literal lt = (Literal) e.Item.FindControl("lt");
+                lt.Text = string.Format("<a href={0}>{1}</a><br/>", something, something);
+
+            }
+        }
         #endregion
-    }
+
+        #region RSS?
+        private void RSSFeed()
+        {
+            string url = "http://feeds2.feedburner.com/RealtororgAuctionHeadlines";
+            XmlReader reader = XmlReader.Create(url);
+            SyndicationFeed feed = SyndicationFeed.Load(reader);
+            reader.Close();
+            List<string> something = new List<string>();
+            foreach (SyndicationItem item in feed.Items)
+            {
+                something.Add(item.Links[0].Uri.OriginalString.ToString());
+                //String subject = item.Links;
+                //String summary = item.Summary.Text;
+            }
+            repFeed.DataSource = something;
+            repFeed.ItemDataBound += new RepeaterItemEventHandler(repFeed_DataBind);
+            repFeed.DataBind();
+        }
+
+    #endregion
+}
 }

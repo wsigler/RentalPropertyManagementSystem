@@ -43,6 +43,12 @@ namespace RPMS_Web.Pages.Tenant
                     hlCreateLeaseInfo.NavigateUrl = (lease == null) ? string.Format("~/Pages/Lease/RentalAgreement.aspx?TenantId={0}", parentTenant.ID) : string.Format("~/Pages/Lease/RentalAgreement.aspx?TenantId={0}&renewal=1", parentTenant.ID);
                     hlCreateLeaseInfo.Text = (lease == null) ? "Create Lease" : "Renew Lease";
 
+                    hlPayment.NavigateUrl = string.Format("~/Pages/Payments/PaymentList.aspx?id={0}", parentTenant.ID);
+
+                    hlPayment.Text = "Make Payment";
+
+                    hlPayment.Visible = (lease != null && tenant.ParentID == null);
+
                     hlEditTenant.NavigateUrl = string.Format("TenantAction.aspx?id={0}", tenant.ID);
 
                     // relative directory

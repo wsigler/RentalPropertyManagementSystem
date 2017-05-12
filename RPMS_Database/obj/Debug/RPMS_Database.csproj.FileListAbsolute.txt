@@ -1,6 +1,0 @@
-C:\git\RentalPropertyManagementSystem\RPMS_Database\bin\Debug\RPMS_Database.dll.config
-C:\git\RentalPropertyManagementSystem\RPMS_Database\bin\Debug\RPMS_Database.dll
-C:\git\RentalPropertyManagementSystem\RPMS_Database\bin\Debug\RPMS_Database.pdb
-C:\git\RentalPropertyManagementSystem\RPMS_Database\obj\Debug\RPMS_Database.csprojResolveAssemblyReference.cache
-C:\git\RentalPropertyManagementSystem\RPMS_Database\obj\Debug\RPMS_Database.dll
-C:\git\RentalPropertyManagementSystem\RPMS_Database\obj\Debug\RPMS_Database.pdb
