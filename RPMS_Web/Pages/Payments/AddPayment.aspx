@@ -82,6 +82,46 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Add Fee
+                                </div>
+                                 <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <asp:DropDownList runat="server" CssClass="form-control" ID="ddlPaymentTypes" />
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">Tenant</div>
+                                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">Date Of Fee</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                            <asp:DropDownList runat="server" CssClass="form-control" ID="ddlTenants" />
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                            <asp:TextBox runat="server" CssClass="form-control datepicker" ID="txtFeeDate" />
+                                        </div>
+                                    </div>
+                                    <br />
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+                        <div class="form-group">
+                            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 right">
+                                <asp:Button runat="server" ID="btnCreatePayment" Text="Create" class="btn btn-success"  OnClick="btnCreatePayment_Click"/>&nbsp;
+                                <asp:Button runat="server" ID="btnCancelPayment" Text="Cancel" class="btn btn-default"  OnClick="btnCancelPayment_Click"/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </ContentTemplate>
              <Triggers>

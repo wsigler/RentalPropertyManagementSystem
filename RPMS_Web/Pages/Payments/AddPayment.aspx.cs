@@ -5,13 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using RPMS_Database;
+using RPMS_BusinessLogic;
 
 namespace RPMS_Web.Pages.Payments
 {
     public partial class AddPayment : System.Web.UI.Page
     {
         private RentalManagementDBDataContext db = new RentalManagementDBDataContext();
-        private List<Dictionary> paymentTypes = null;
+        //private List<Dictionary> paymentTypes = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,7 +26,30 @@ namespace RPMS_Web.Pages.Payments
                 {
                     ShowList();
                 }
+
+                PopulateTenantDropdown();
+                PopulatePaymentTypes();
             }
+        }
+
+        private void PopulateTenantDropdown()
+        {
+            ddlTenants.DataSource = db.Tenants.Where(x => x.IsActive == true).ToList();
+            ddlTenants.DataTextField = "FullName";
+            ddlTenants.DataValueField = "ID";
+            ddlTenants.DataBind();
+
+            ddlTenants.Items.Insert(0, new ListItem("-- Select --", "0"));
+        }
+
+        private void PopulatePaymentTypes()
+        {
+            ddlPaymentTypes.DataSource = db.Dictionaries.Where(x => x.Category == "Payments").ToList();
+            ddlPaymentTypes.DataTextField = "EntryName";
+            ddlPaymentTypes.DataValueField = "ID";
+            ddlPaymentTypes.DataBind();
+
+            ddlPaymentTypes.Items.Insert(0, new ListItem("-- Select --", "0"));
         }
 
         private void ShowAdd()
@@ -108,6 +132,42 @@ namespace RPMS_Web.Pages.Payments
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AddPayment.aspx");
+        }
+
+        protected void btnCreatePayment_Click(object sender, EventArgs e)
+        {
+            decimal amount = 0M;
+            var paymentType = db.Dictionaries.FirstOrDefault(x => x.ID == int.Parse(ddlPaymentTypes.SelectedItem.Value));
+            var tenant = db.Tenants.FirstOrDefault(x => x.ID == int.Parse(ddlTenants.SelectedItem.Value));
+            
+            switch(paymentType.ID)
+            {
+                case 5000: //Rent
+                    amount = db.Properties.FirstOrDefault(x => x.ID == tenant.PropertyID).RentAmount;
+                    break;
+                case 5001: //Daily Late Payment
+                case 5002: //Late Charge
+                case 5003: //Check Return
+                    amount = decimal.Parse(paymentType.Description);
+                    break;
+                case 5004: //Deposit
+                    amount = db.Properties.FirstOrDefault(x => x.ID == tenant.PropertyID).DepositAmount;
+                    break;
+                case 5005: //Pet Deposit
+                    amount = db.Properties.FirstOrDefault(x => x.ID == tenant.PropertyID).PetDepositAmount;
+                    break;
+                default:
+                    break;
+            }
+                
+            new PaymentBL().CreateFeePayment(tenant, DateTime.Parse(txtFeeDate.Text), paymentType.ID, amount);
+
+            Response.Redirect("AddPayment.aspx");
+        }
+
+        protected void btnCancelPayment_Click(object sender, EventArgs e)
         {
             Response.Redirect("AddPayment.aspx");
         }

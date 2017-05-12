@@ -12,6 +12,18 @@ namespace RPMS_BusinessLogic
     {
         private RentalManagementDBDataContext db = new RentalManagementDBDataContext();
 
+        public void CreateFeePayment(Tenant tenant, DateTime date, int paymentType, decimal amount)
+        {
+            Payment payment = new Payment();
+            payment.TenantID = tenant.ID;
+            payment.PropertyID = tenant.PropertyID;
+            payment.DueDate = date;
+            payment.AmountDue = amount;
+            payment.Balance = amount;
+            payment.TypeID = paymentType;
+            new PaymentDAL().AddPayment(payment);
+        }
+
         public void CreatePayments(int tenantId, int propertyId, DateTime sDate, DateTime eDate, decimal proRateAmount)
         {
             var property = db.Properties.FirstOrDefault(x => x.ID == propertyId);
@@ -30,6 +42,7 @@ namespace RPMS_BusinessLogic
                 payment.Balance = 0;
                 payment.ModifiedBy = 1;
                 payment.ModifiedDate = DateTime.Now;
+                payment.TypeID = 5000; //Rent
                 payments.Add(payment);
             }
             else
@@ -46,6 +59,7 @@ namespace RPMS_BusinessLogic
                 payment.DueDate = new DateTime(paymentDate.Year, paymentDate.Month, 5);
                 payment.AmountDue = property.RentAmount;
                 payment.Balance = property.RentAmount;
+                payment.TypeID = 5000; //Rent
 
                 payments.Add(payment);
             }

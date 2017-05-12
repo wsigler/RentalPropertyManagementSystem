@@ -14,16 +14,19 @@ namespace RPMS_Database
         {
             try
             {
-                payments.ForEach(x => {
-                    db.Payments.InsertOnSubmit(x);
-                    db.SubmitChanges();
-                });
+                payments.ForEach(x => AddPayment(x));
 
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+        }
+
+        public void AddPayment(Payment payment)
+        {
+            db.Payments.InsertOnSubmit(payment);
+            db.SubmitChanges();
         }
 
         public void UpdatePayment(Payment payment)

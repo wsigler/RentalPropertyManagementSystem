@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using RPMS_Database;
+using RPMS_BusinessLogic;
 using System.Configuration;
 using System.IO;
 
@@ -192,9 +193,11 @@ namespace RPMS_Web.Pages.Lease
                     propertyID = lease.PropertyID = int.Parse(Request.QueryString["PropertyId"]);
                 }
                 lease = PopulateFromFormData(lease);
+                
                 new RPMS_Database.LeaseInfoDAL().InsertLeaseInfo(lease);
 
                 lease = db.LeaseInfos.FirstOrDefault(x => x.IsCurrentLease == true && x.PropertyID == propertyID);
+
             }
 
             // relative directory

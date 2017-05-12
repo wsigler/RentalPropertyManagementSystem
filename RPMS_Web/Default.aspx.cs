@@ -154,16 +154,47 @@ namespace RPMS_Web
                 LeaseInfo propLease = leases.FirstOrDefault(x => x.PropertyID == property.ID);
                 var payments = db.Payments.Where(x => x.PropertyID == property.ID && x.TenantID == tenant.ID).ToList();
 
-                //if(DateTime.Now.Day > 5)
-                //{
-                    var compareDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 5);
+                var compareDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 5);
 
-                    var payment = payments.FirstOrDefault(x => x.DueDate == compareDate);
-                    if(payment != null)
+                var payment = payments.FirstOrDefault(x => x.DueDate == compareDate && x.TypeID == 5000);
+                if(payment != null)
+                {
+                    cbRentCurrent.Checked = (payment.Balance == 0);
+
+                    if(DateTime.Now.Day > 5 && payment.Balance > 0)
                     {
-                        cbRentCurrent.Checked = (payment.Balance == 0);
+                        var dailyFees = payments.FirstOrDefault(x => x.DueDate == compareDate && x.TypeID == 5001);
+                        int dateDif = DateTime.Now.Day - 5;
+                        decimal amountPerDay = decimal.Parse(db.Dictionaries.FirstOrDefault(x => x.ID == 5001).Description);
+                        bool isNew = false;
+
+                        if(dailyFees == null)
+                        {
+                            dailyFees = new Payment();
+                            dailyFees.TypeID = 5001;
+                            dailyFees.DueDate = compareDate;
+                            dailyFees.TenantID = payment.TenantID;
+                            dailyFees.PropertyID = payment.PropertyID;
+                            isNew = true;
+                        }
+
+                        dailyFees.AmountDue = dateDif * amountPerDay;
+                        dailyFees.Balance = dailyFees.AmountDue;
+                        dailyFees.ModifiedBy = 1;
+                        dailyFees.ModifiedDate = DateTime.Now;
+
+                        if(isNew)
+                        {
+                            new PaymentDAL().AddPayment(dailyFees);
+                        }
+                        else
+                        {
+                            new PaymentDAL().UpdatePayment(dailyFees);
+                        }
+
+
                     }
-                //}
+                }
 
 
                 if (propLease != null)

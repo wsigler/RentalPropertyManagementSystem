@@ -34,7 +34,7 @@ namespace RPMS_Web.Pages.Payments
                     litTenants.Text += string.Format("<br/><a href='http://{2}/Pages/Tenant/TenantDetail.aspx?id={0}'>{1}</a>", x.ID, x.FullName, HttpContext.Current.Request.Url.Host);
                 });
 
-                repPayments.DataSource = payments;
+                repPayments.DataSource = payments.OrderBy(x => x.DueDate).ToList();
                 repPayments.ItemDataBound += new RepeaterItemEventHandler(repPayments_DataBinding);
                 repPayments.DataBind();
             }

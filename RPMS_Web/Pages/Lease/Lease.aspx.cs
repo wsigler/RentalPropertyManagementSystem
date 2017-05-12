@@ -38,6 +38,8 @@ namespace RPMS_Web.Pages.Lease
 
                             litProratedRent.Text = string.Format("First month's prorated amount is ${0} and paid on {1}.", proRatedAmount.ToString("##,##0.00"), lease.StartDate.Value.ToString("MM/dd/yyyy"));
                         }
+
+                        new PaymentBL().CreateFeePayment(tenant, lease.StartDate.Value, 5004, lease.DepositAmount);
                         new PaymentBL().CreatePayments(lease.TenantID.Value, lease.PropertyID, lease.StartDate.Value, lease.EndDate.Value, proRatedAmount);
                     }
 
